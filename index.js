@@ -14,10 +14,14 @@ const port = 3000
 //     res.status = 200;
 //     res.sendFile(path.join(__dirname, "pages/static/index.html"))
 // })
-app.get("/", (req, res)=>{
-    res.status = 200;
-    res.sendFile(path.join(__dirname, "pages/sample/index.html"))
-})
+app.use(express.static(path.join(__dirname, "pages/static")))
+
+//** Dynamic routing links */
+// app.get("/hello/:blog", (req, res)=>{
+//     res.status = 200;
+//     res.send("Yokonava" + req.params.blog)
+//     res.sendFile(path.join(__dirname, "pages/sample/index.html"))
+// })
 
 app.listen(port, ()=>{
     console.log(`App is running on port : ${port}`)
